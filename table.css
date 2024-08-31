@@ -1,0 +1,16 @@
+/* element selector */
+.{
+    color: blue;
+}
+/* border-spacing: value; */ 
+
+table {
+    /* Styling the border-spacing between adjacent cells. */
+    border-spacing: 10px;
+}
+/* caption-side: top/bottom; */ 
+
+table .{
+    /* Controlling the placement of caption. */
+    caption-side: top;
+}
