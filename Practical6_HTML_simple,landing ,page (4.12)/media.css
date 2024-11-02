@@ -1,0 +1,101 @@
+@import url("http://fonts.cndfonts.com/css/ice-rubik-black");
+@import url('http://fonts.cndfonts.com/css/poppins');
+
+.banner{
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+.banner .slider{
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    top: 10%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autoRun 20s linear infinite; 
+    z-index: 2;  
+}
+@keyframes autoRun{
+    from {
+        transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+    }to{
+        transform: perspective(1000px) rotateX(-16deg) rotate(0deg);
+    }
+}
+
+.banner .slider .item{
+    position: absolute;
+    inset: 0 0 0 0 ;
+    transform:
+        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        translateZ(550px);
+}
+.banner .slider .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} 
+.banner .content{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    width: min(1400px, 100vw);
+    padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+.banner .content h1{
+    font-family: 'ICA Rubrik';
+    font-size: 16em;
+    line-height: 1em;
+    color: black;
+    position: relative;
+    z-index: 2;
+}
+.banner .content h1::after{
+    position: absolute;
+    inset: 0 0 0 0;
+    content: attr(data-content);
+    z-index: 1;
+    -webkit-text-stroke: 2px white;
+    color: transparent;
+
+}
+.banner .content .authar{
+    font-family: poppins;
+    text-align: right;
+    max-width: 200px;
+    z-index: 2;
+}
+.banner .content h2{
+    font-size: 3em;
+}
+.banner .content .model{
+    background-image: url(download.jpeg);
+    width: 100%;
+    height: 75vh;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    background-size: auto 100%;
+    background-repeat:no-repeat;
+    background-position: top center;
+    z-index: 1;
+}
+
+.btn-box{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+

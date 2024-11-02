@@ -1,0 +1,67 @@
+/* Reset default browser styles */
+body, h1, table {
+    margin: 0;
+    padding: 0;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif; /* Use a clean, modern font */
+    background-color: #f4f4f4; /* Light background color for contrast */
+    color: #333; /* Dark text color */
+}
+
+/* Header styles */
+header {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    text-align: center; /* Centered text */
+    padding: 1rem 0; /* Padding for header */
+}
+
+/* Main content styles */
+main {
+    display: flex; /* Flexbox for layout */
+    justify-content: center; /* Center the table */
+    margin: 2rem; /* Margin around the main content */
+}
+
+/* Table styles */
+table {
+    width: 100%; /* Full width of the parent */
+    max-width: 800px; /* Max width for better readability */
+    border-collapse: collapse; /* Collapse borders */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: white; /* White background for table */
+}
+
+/* Header cell styles */
+th {
+    background-color: #4CAF50; /* Match header color */
+    color: white; /* White text */
+    padding: 12px; /* Padding for header cells */
+}
+
+/* Data cell styles */
+td {
+    padding: 10px; /* Padding for data cells */
+    text-align: center; /* Center text in cells */
+    border: 1px solid #ddd; /* Light border for cells */
+}
+
+/* Hover effect for table rows */
+tr:hover {
+    background-color: #f1f1f1; /* Light gray on hover */
+}
+
+/* Empty cell styles */
+td:empty {
+    background-color: #f9f9f9; /* Light background for empty cells */
+}
+
+/* Media query for responsiveness */
+@media (max-width: 600px) {
+    table {
+        font-size: 14px; /* Smaller font size on small screens */
+    }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hostel Room Maintenance Request</title>
+  <link rel="stylesheet" href="style_form.html">
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Room Maintenance Request</h2>
+    <form action="#" method="POST">
+      <!-- Name -->
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+      <!-- Room Number -->
+      <label for="room-number">Room Number</label>
+      <input type="text" id="room-number" name="room-number" placeholder="Enter your room number" required>
+
+      <!-- Type of Issue -->
+      <label for="issue-type">Type of Issue</label>
+      <select id="issue-type" name="issue-type" required>
+        <option value="" disabled selected>Select issue type</option>
+        <option value="plumbing">Plumbing</option>
+        <option value="electrical">Electrical</option>
+        <option value="furniture">Furniture</option>
+        <option value="appliance">Appliance</option>
+        <option value="other">Other</option>
+      </select>
+
+      <!-- Description -->
+      <label for="description">Description</label>
+      <textarea id="description" name="description" rows="4" placeholder="Describe the issue in detail" required></textarea>
+
+      <!-- Urgency -->
+      <label for="urgency">Urgency</label>
+      <select id="urgency" name="urgency" required>
+        <option value="" disabled selected>Select urgency level</option>
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+
+      <!-- Submit Button -->
+      <button type="submit">Submit Request</button>
+    </form>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Component Card</title>
+    <script type="module" src="cn.js"></script>
+    <style>
+        /* Example global styles */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f5;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Usage of the custom card component -->
+    <custom-card>
+        <div slot="header">Card Header</div>
+        <div slot="content">
+            <p>This is the main content of the card. It can include text, images, or any other HTML elements.</p>
+            <img src="https://via.placeholder.com/150" alt="Sample Image">
+        </div>
+        <div slot="footer">Card Footer</div>
+    </custom-card>
+</body>
+</html>

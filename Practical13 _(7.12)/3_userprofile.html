@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile Component</title>
+</head>
+<body>
+  <!-- Using the user-profile element with name and role attributes -->
+  <user-profile name="Ngawang Choki Drakpa" role="Software Engineer"></user-profile>
+
+  <script>
+    class UserProfile extends HTMLElement {
+      constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+      }
+
+      connectedCallback() {
+        this.render();
+      }
+
+      static get observedAttributes() {
+        return ['name', 'role'];
+      }
+
+      attributeChangedCallback(name, oldValue, newValue) {
+        if (oldValue !== newValue) {
+          this.render();
+        }
+      }
+
+      render() {
+        const name = this.getAttribute('name') || 'Unknown';
+        const role = this.getAttribute('role') || 'Role not specified';
+
+        this.shadowRoot.innerHTML = `
+          <style>
+            .card {
+              border: 1px solid #ddd;
+              border-radius: 8px;
+              padding: 16px;
+              max-width: 200px;
+              font-family: Arial, sans-serif;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+            .name {
+              font-size: 1.2em;
+              font-weight: bold;
+              color: #333;
+              margin: 0;
+            }
+            .role {
+              font-size: 1em;
+              color: #555;
+              margin: 4px 0 0;
+            }
+          </style>
+          <div class="card">
+            <p class="name">${name}</p>
+            <p class="role">${role}</p>
+          </div>
+        `;
+      }
+    }
+
+    // Define the custom element
+    customElements.define('user-profile', UserProfile);
+  </script>
+</body>
+</html>

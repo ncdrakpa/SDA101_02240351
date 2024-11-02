@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>octa</title>
+    <link rel="stylesheet" href="fomes.css">
+</head>
+
+<body>
+    <form>
+        <!-- Text input for name -->
+        <label for="name">Name: </label>
+        <input type="text" , required><br> <br>
+
+        <label for="dob">Date of Birth: </label>
+        <input type="date" , required><br> <br>
+
+        <!-- Radio buttons with the same 'name' form a group; only one can be selected -->
+        <label for="gender">Gender: </label>
+        <label for="male"> Male</label>
+        <input type="radio" , name="gender">
+        <label for="femail">femail</label>
+        <input type="radio" , name="gender">
+        <label for="other">other</label>
+        <input type="radio" , name="gender"><br><br>
+
+        <!-- Email input -->
+        <label for="email">Email: </label>
+        <input type="email" , required><br> <br>
+        <!-- 'required' attribute makes this field mandatory -->
+
+        <!-- Password input -->
+        <label for="password">password: </label>
+        <input type="password" , required><br> <br>
+
+        <!-- number input -->
+        <label for="number">Number: </label>
+        <input type="number" , required><br> <br>
+
+        <label for="preference seminar time">preference seminar time: </label>
+        <input type="time" , required><br> <br>
+
+        <!-- Checkboxes for multiple interest selection -->
+        <label for="meal preference">Meal preference</label>
+        <select name="meal preference">
+            <option value="Vegetrain">Vegetrain</option>
+            <option value="non-vegetrain">Non-vegetrain</option>
+            <option value="vegan">vegan</ption>
+
+        </select><br><br>
+        <!-- Submit button to send the form data -->
+        <input type="submit" , value="submit">
+    </form>
+</body>
+
+</html>

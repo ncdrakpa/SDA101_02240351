@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input:invalid {
+            border-color: red;
+        }
+
+        input:valid {
+            border-color: green;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            height: 15px;
+            /* to keep layout intact even if there's no error */
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: grey;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Registration Form</h2>
+    <form id="registrationForm" novalidate>
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <span class="error" id="usernameError"></span>
+        </div>
+
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <span class="error" id="emailError"></span>
+        </div>
+
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <span class="error" id="passwordError"></span>
+        </div>
+
+        <div>
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+            <span class="error" id="confirmPasswordError"></span>
+        </div>
+
+        <button type="submit" id="submitButton" disabled>Register</button>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('registrationForm');
+            const username = document.getElementById('username');
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirmPassword');
+            const submitButton = document.getElementById('submitButton');
+
+            const usernameError = document.getElementById('usernameError');
+            const emailError = document.getElementById('emailError');
+            const passwordError = document.getElementById('passwordError');
+            const confirmPasswordError = document.getElementById('confirmPasswordError');
+
+            // Validation patterns
+            const usernamePattern = /^.{5,}$/; // At least 5 characters
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email validation
+            const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/; // At least 8 characters, 1 uppercase, 1 lowercase, 1 number, 1 special character
+
+            // Disable submit button initially
+            submitButton.disabled = true;
+
+            function validateUsername() {
+                if (!usernamePattern.test(username.value)) {
+                    usernameError.textContent = 'Username must be at least 5 characters long.';
+                    return false;
+                }
+                usernameError.textContent = '';
+                return true;
+            }
+
+            function validateEmail() {
+                if (!emailPattern.test(email.value)) {
+                    emailError.textContent = 'Please enter a valid email address.';
+                    return false;
+                }
+                emailError.textContent = '';
+                return true;
+            }
+
+            function validatePassword() {
+                if (!passwordPattern.test(password.value)) {
+                    passwordError.textContent = 'Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.';
+                    return false;
+                }
+                passwordError.textContent = '';
+                return true;
+            }
+
+            function validateConfirmPassword() {
+                if (password.value !== confirmPassword.value) {
+                    confirmPasswordError.textContent = 'Passwords do not match.';
+                    return false;
+                }
+                confirmPasswordError.textContent = '';
+                return true;
+            }
+
+            // Check form validity and enable/disable submit button
+            function checkFormValidity() {
+                const isFormValid = validateUsername() && validateEmail() && validatePassword() && validateConfirmPassword();
+                submitButton.disabled = !isFormValid;
+            }
+
+            // Add event listeners for real-time validation
+            username.addEventListener('input', () => {
+                validateUsername();
+                checkFormValidity();
+            });
+
+            email.addEventListener('input', () => {
+                validateEmail();
+                checkFormValidity();
+            });
+
+            password.addEventListener('input', () => {
+                validatePassword();
+                checkFormValidity();
+            });
+
+            confirmPassword.addEventListener('input', () => {
+                validateConfirmPassword();
+                checkFormValidity();
+            });
+
+            // Prevent form submission if validation fails
+            form.addEventListener('submit', (event) => {
+                if (!validateUsername() || !validateEmail() || !validatePassword() || !validateConfirmPassword()) {
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+document.forms.my; // the form with name="my"
+document.forms[0]; // the first form in the document
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let form = document.forms.my;
+    let elem = form.elements.one; 
+
+    alert(elem.value); 
+  </script>
+
+  <form>
+    <input type="radio" name="age" value="10">
+    <input type="radio" name="age" value="20">
+  </form>
+
+  <script>
+    let form = document.forms[0];
+    let ageElems = form.elements.age;
+    alert(ageElems[0]);
+  </script>
+
+<body>
+  <form id="form">
+    <fieldset name="userFields">
+      <legend>info</legend>
+      <input name="login" type="text">
+    </fieldset>
+  </form>
+
+  <script>
+    alert(form.elements.login); 
+    let fieldset = form.elements.userFields;
+    alert(fieldset);
+    alert(fieldset.elements.login == form.elements.login); 
+  </script>
+</body>
+
+<form id="form">
+  <input name="login">
+</form>
+
+<script>
+  alert(form.elements.login == form.login); 
+  form.login.name = "username"; 
+  alert(form.elements.login); 
+  alert(form.elements.username); 
+  alert(form.username == form.login);
+</script>
+
+<form id="form">
+  <input type="text" name="login">
+</form>
+
+<script>
+  let login= form.login;
+  alert(login.form); 
+</script>
+
+
+<form id="form">
+  <input type="text" name="login">
+</form>
+
+<script>
+  let login = form.login;
+  alert(login.form); 
+</script>
+
+
+<select id="select">
+  <option value="apple">Apple</option>
+  <option value="pear">Pear</option>
+  <option value="banana">Banana</option>
+</select>
+
+<script>
+  select.options[2].selected = true;
+  select.selectedIndex = 2;
+  select.value = 'banana';
+</script>
+
+<select id="select" multiple>
+  <option value="blues" selected>Blues</option>
+  <option value="rock" selected>Rock</option>
+  <option value="classic">Classic</option>
+</select>
+
+<script>
+  let selected = Array.from(select.options)
+    .filter(option => option.selected)
+    .map(option => option.value);
+
+  alert(selected);
+  </script>
+
+  option = new Option(text, value, defaultSelected, selected);
+
+  let option = new Option("Text", "value");
+  // creates <option value="value">Text</option>
+  
+</body>
+</html>
+<form name="my">
+  <input name="one" value="1">
+  <input name="two" value="2">
+</form>
+
